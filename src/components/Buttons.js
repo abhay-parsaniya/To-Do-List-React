@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DeleteItem from "./actions/DeleteItem";
 import EditItem from "./actions/EditItem";
 import Button from 'react-bootstrap/Button';
@@ -9,14 +9,38 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const Buttons = (props) => {
 
-    const [btnStatus, setBtnStatus] = useState(true);   // For Mark or UnMark
+    let btnStatus = props.data[0].status;
 
     const MarkDone = () => {   // Mark Done Function
-        setBtnStatus(false);
+
+        props.data[1]((olddata) => {
+            // console.log(olddata);
+            return(
+                olddata.map((arrElement, index) => {
+                    if(index === props.id)
+                    {
+                        arrElement.status = false;
+                    }
+                    return arrElement;
+                })
+            )
+        })
     };
 
     const UnMarkDone = () => {   // UnMark Function
-        setBtnStatus(true);
+
+        props.data[1]((olddata) => {
+            // console.log(olddata);
+            return(
+                olddata.map((arrElement, index) => {
+                    if(index === props.id)
+                    {
+                        arrElement.status = true;
+                    }
+                    return arrElement;
+                })
+            )
+        })
     };
 
     const renderTooltip = (props) => (   // ToolTip as per Mark and Unmark

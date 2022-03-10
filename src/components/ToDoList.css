@@ -24,3 +24,7 @@
     width: 50%;
     text-align: start;
 }
+
+.Item p{
+    margin-bottom: 0px;
+}

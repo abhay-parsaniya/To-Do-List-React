@@ -18,7 +18,7 @@ const EditItem = (props) => {
     const handleClose = () => setShow(false);
     
     const handleShow = () => {
-        setEditData(props.data[0]);
+        setEditData(props.data[0].inputItem);
         setShow(true);
     };
 
@@ -36,11 +36,12 @@ const EditItem = (props) => {
         props.data[1]((olddata) => {   // Saving Value in List
             return (
                 olddata.map((arrElement, index) => {
+                    // console.log(arrElement);
                     if(index === props.id)
                     {
-                        arrElement = editData;
+                        arrElement.inputItem = editData;
                     }
-                    console.log(arrElement)
+                    // console.log(arrElement);
                     return arrElement;
                 })
             );
@@ -69,7 +70,7 @@ const EditItem = (props) => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Edit Your Item</Modal.Title>
                 </Modal.Header>
                 
                 <Modal.Body>

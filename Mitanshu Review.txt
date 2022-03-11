@@ -1,5 +1,0 @@
-Mitanshu's To Do List Task Review
-
-1. I suggests that he should Add Comments in code.
-2. For each Activity like Add, Delete, Edit there should be a seperate function component.
-3. Code is very good and effectively use of ternary operator.
